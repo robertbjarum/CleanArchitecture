@@ -34,6 +34,13 @@ public class Delete : EndpointBaseAsync
       return NotFound();
     }
 
+    // var spec = new ProjectByIdWithItemsSpec(request.ProjectId);
+    // var entity = await _repository.FirstOrDefaultAsync(spec, cancellationToken);
+    // if (entity == null)
+    // {
+    //   return NotFound();
+    // }
+
     await _repository.DeleteAsync(aggregateToDelete, cancellationToken);
 
     return NoContent();
